@@ -9,12 +9,13 @@ function App() {
   return (
     <div className="App">
         <div className="Menu">
+          <CountdownTimer />
           <Scorecard />
           <Restart />
           <HighScores />
         </div>
         <div className="Game">
-          <CountdownTimer />
+          
           <div className="gridWrapper">
             <Grid />
           </div>
