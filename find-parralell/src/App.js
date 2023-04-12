@@ -2,6 +2,7 @@ import "./App.css";
 import { CountdownTimer } from "./Timer/CountdownTimer";
 import Grid from "./Grid/Grid";
 import { Scorecard } from "./Scorecard/Scorecard";
+import { Restart } from "./Restart/Restart";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <body>
         <div className="Menu">
           <Scorecard currentScore={10} />
+          <Restart />
         </div>
         <div className="Game">
           <CountdownTimer initialSeconds={60} />
