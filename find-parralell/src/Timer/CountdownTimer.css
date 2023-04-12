@@ -1,7 +1,15 @@
 .CountdownTimer {
-  height: 100px;
+  height: 120px;
 }
 
 .GameOver {
   color: red;
+}
+
+.TimeIndicator h1 {
+  margin: 10px;
+}
+
+.TimeIndicator h2 {
+  margin: 10px;
 }
