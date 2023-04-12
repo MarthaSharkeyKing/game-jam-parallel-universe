@@ -6,8 +6,13 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">Close the Parralell universes!</header>
-      <CountdownTimer initialSeconds={60} />
-      <Grid />
+      <body>
+        <div className="Menu"></div>
+        <div className="Game">
+          <CountdownTimer initialSeconds={60} />
+          <Grid />
+        </div>
+      </body>
     </div>
   );
 }
