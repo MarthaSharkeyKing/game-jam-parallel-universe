@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   cards: [
-    { positionId: 1, cardState: "oops", pairId: 0 },
+    { positionId: 1, cardState: "oops", pairId: 0, img: "./timeboost.png" },
     {
       positionId: 2,
       cardState: "closed",
@@ -56,10 +56,15 @@ export const gridSlice = createSlice({
   initialState,
   reducers: {
     resetGrid: (state) => {
-      state.cards = state.cards.map((card) => {
-        return { ...card, cardState: "closed" };
-      });
+      state.cards = initialState.cards;
       state.cardsOpen = [];
+    },
+    showTimeBoost: (state) => {
+      state.cards = state.cards.map((card) => {
+        if (card.positionId === 1) {
+          return { ...card, cardState: "matched" };
+        } else return card;
+      });
     },
     setCardAsOpen: (state, action) => {
       if (action.payload.cardState === "closed") {
@@ -97,7 +102,12 @@ export const gridSlice = createSlice({
 });
 
 // each case under reducers becomes an action
-export const { resetGrid, setCardAsOpen, setCardsAsClosed, setCardsAsMatched } =
-  gridSlice.actions;
+export const {
+  resetGrid,
+  showTimeBoost,
+  setCardAsOpen,
+  setCardsAsClosed,
+  setCardsAsMatched,
+} = gridSlice.actions;
 
 export default gridSlice.reducer;
