@@ -1,0 +1,15 @@
+.CountdownTimer {
+  height: 60px;
+  justify-content: center;
+}
+
+.GameOver h2 {
+  color: red;
+  margin: 0px;
+  padding: 10px;
+}
+
+.TimeIndicator h2 {
+  padding: 10px;
+  margin: 0px;
+}

@@ -2,15 +2,37 @@
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-items: center;
   align-content: center;
   background-color: blue;
-  
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.App body {
+  margin: 0;
+  padding: 0%;
+  display: flex;
+  flex-direction: row;
+}
+
+.Menu {
+  margin: 0;
+  padding: 0%;
+  width: 25%;
+  flex-direction: column;
+  border-right: 5px solid #282c34;
+}
+
+.Game {
+  padding: 0%;
+  justify-content: center;
+  margin: 0;
+  width: 75%;
+  flex-direction: column;
 }
 
 @media (prefers-reduced-motion: no-preference) {
