@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
+import * as _ from 'lodash';
 
-const initialState = {
-  cards: [
+const cardInit = [
     { positionId: 1, cardState: "oops", pairId: 0 },
     {
       positionId: 2,
@@ -47,7 +47,9 @@ const initialState = {
     { positionId: 23, cardState: "closed", pairId: 11, img: "./spider2.jpg" },
     { positionId: 24, cardState: "closed", pairId: 12, img: "./trek1.webp" },
     { positionId: 25, cardState: "closed", pairId: 12, img: "./trek2.jpg" },
-  ],
+  ]
+const initialState = {
+  cards: _.shuffle(cardInit),
   cardsOpen: [],
 };
 
