@@ -6,7 +6,7 @@ import * as gameStateSelectors from "../GameState/selectors";
 import * as actions from "./slice";
 import * as gameStateActions from "../GameState/slice";
 import * as scoreActions from "../Scorecard/slice";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 const Grid = () => {
   const dispatch = useDispatch();
