@@ -34,7 +34,7 @@ const Grid = () => {
         {cardInfo.map(card => 
         <button key={card.positionId} 
             onClick={() => handleClick(card)}>
-                <Card  key={card.positionId} positionId={card.positionId} cardState={card.cardState}/>
+                <Card  key={card.positionId} positionId={card.positionId} cardState={card.cardState} cardImage={card.img}/>
         </button>)}
     </div>
   );
