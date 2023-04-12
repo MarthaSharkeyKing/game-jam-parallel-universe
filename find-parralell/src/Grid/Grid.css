@@ -1,0 +1,8 @@
+.Grid {
+color: aliceblue;
+display: grid;
+grid-template-columns: repeat(5, 100px);
+grid-template-rows: repeat(5, 100px);
+width: 100%;
+gap: 25px 25px;
+}
