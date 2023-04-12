@@ -6,7 +6,7 @@ import { Scorecard } from "./Scorecard/Scorecard";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">Close the Parralell universes!</header>
+      <header className="App-header">Close the parallel universes!</header>
       <body>
         <div className="Menu">
           <Scorecard currentScore={10} />
