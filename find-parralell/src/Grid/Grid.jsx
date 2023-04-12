@@ -40,7 +40,7 @@ const Grid = () => {
   return (
     <div className="Grid">
       {cardInfo.map((card) => (
-        <button key={card.positionId} onClick={() => handleClick(card)}>
+        <button className='button' key={card.positionId} onClick={() => handleClick(card)}>
           <Card
             key={card.positionId}
             positionId={card.positionId}

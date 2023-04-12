@@ -4,57 +4,37 @@
   flex-direction: column;
   justify-items: center;
   align-content: center;
-  background-color: blue;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App body {
+  background-color: black;
+  color: aliceblue;
   margin: 0;
   padding: 0%;
   display: flex;
   flex-direction: row;
+  height: 100vh;
 }
 
 .Menu {
   margin: 0;
   padding: 0%;
-  width: 25%;
   flex-direction: column;
   border-right: 5px solid #282c34;
+  width: 25%;
 }
 
 .Game {
+  display: flex;
+  flex-direction: column;
   padding: 0%;
   justify-content: center;
+  align-content: center;
   margin: 0;
-  width: 75%;
   flex-direction: column;
+  width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.gridWrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%
 }

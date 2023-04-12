@@ -2,7 +2,7 @@
 const ClosedDoor = () => {
   return (
     <div className="ClosedDoor">
-        <img src='./portal.jpg' width="100" height="100" alt="portal"/>
+        <img src='./portal.jpg' width="150" height="150" alt="portal"/>
     </div>
   );
 }
