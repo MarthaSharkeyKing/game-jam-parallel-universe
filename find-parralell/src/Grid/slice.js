@@ -2,51 +2,70 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
     cards: [
-        {positionId: 1, clicked: false},
-        {positionId: 2, clicked: false},
-        {positionId: 3, clicked: false},
-        {positionId: 4, clicked: false},
-        {positionId: 5, clicked: false},
-        {positionId: 6, clicked: false},
-        {positionId: 7, clicked: false},
-        {positionId: 8, clicked: false},
-        {positionId: 9, clicked: false},
-        {positionId: 10, clicked: false},
-        {positionId: 11, clicked: false},
-        {positionId: 12, clicked: false},
-        {positionId: 13, clicked: false},
-        {positionId: 14, clicked: false},
-        {positionId: 15, clicked: false},
-        {positionId: 16, clicked: false},
-        {positionId: 17, clicked: false},
-        {positionId: 18, clicked: false},
-        {positionId: 19, clicked: false},
-        {positionId: 20, clicked: false},
-        {positionId: 21, clicked: false},
-        {positionId: 22, clicked: false},
-        {positionId: 23, clicked: false},
-        {positionId: 24, clicked: false},
-        {positionId: 25, clicked: false},
-    ]
+        {positionId: 1, cardState: 'closed', pairId: 0},
+        {positionId: 2, cardState: 'closed', pairId: 1},
+        {positionId: 3, cardState: 'closed', pairId: 1},
+        {positionId: 4, cardState: 'closed', pairId:2},
+        {positionId: 5, cardState: 'closed', pairId:2},
+        {positionId: 6, cardState: 'closed', pairId:3},
+        {positionId: 7, cardState: 'closed', pairId:3},
+        {positionId: 8, cardState: 'closed', pairId:4},
+        {positionId: 9, cardState: 'closed', pairId:4},
+        {positionId: 10, cardState: 'closed', pairId:5},
+        {positionId: 11, cardState: 'closed', pairId:5},
+        {positionId: 12, cardState: 'closed', pairId:6},
+        {positionId: 13, cardState: 'closed', pairId:6},
+        {positionId: 14, cardState: 'closed', pairId:7},
+        {positionId: 15, cardState: 'closed', pairId:7},
+        {positionId: 16, cardState: 'closed', pairId:8},
+        {positionId: 17, cardState: 'closed', pairId:8},
+        {positionId: 18, cardState: 'closed', pairId:9},
+        {positionId: 19, cardState: 'closed', pairId:9},
+        {positionId: 20, cardState: 'closed', pairId:10},
+        {positionId: 21, cardState: 'closed', pairId:10},
+        {positionId: 22, cardState: 'closed', pairId:11},
+        {positionId: 23, cardState: 'closed', pairId:11},
+        {positionId: 24, cardState: 'closed', pairId:12},
+        {positionId: 25, cardState: 'closed', pairId:12},
+    ],
+    cardsOpen: []
 }
 
 export const gridSlice = createSlice({
   name: 'gridSlice',
   initialState,
   reducers: {
-    setCardAsClicked: (state, action) => {
+    setCardAsOpen: (state, action) => {
       state.cards = state.cards.map(card => {
-        if(card.positionId === action.payload) {
-            return ({positionId: card.positionId, clicked: !card.clicked})
+        if(card.positionId === action.payload.positionId) {
+            return ({...card, cardState: 'open'})
       }
       else return card
-    })
+    });
+    state.cardsOpen = [...state.cardsOpen, action.payload]
     },
-
-  },
+    setCardsAsClosed: (state) => {
+        state.cards = state.cards.map(card => {
+          if(card.cardState === 'open') {
+              return ({...card, cardState: 'closed'})
+        }
+        else return card
+      });
+      state.cardsOpen = []
+    },
+    setCardsAsMatched: (state) => {
+        state.cards = state.cards.map(card => {
+          if(card.cardState === 'open') {
+              return ({...card, cardState: 'matched'})
+        }
+        else return card
+      });
+      state.cardsOpen = []
+    }
+  }
 })
 
 // each case under reducers becomes an action
-export const { setCardAsClicked } = gridSlice.actions
+export const { setCardAsOpen, setCardsAsClosed, setCardsAsMatched} = gridSlice.actions
 
 export default gridSlice.reducer
