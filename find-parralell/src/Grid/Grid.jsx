@@ -3,6 +3,7 @@ import Card from '../Card/Card';
 import { useDispatch, useSelector } from 'react-redux';
 import * as selectors from './selectors'
 import * as actions from './slice'
+import * as scoreActions from '../Scorecard/slice';
 import { useEffect, useState } from 'react';
 
 const Grid = () => {  
@@ -20,7 +21,9 @@ const Grid = () => {
         if(openCards.length === 2){
             if(openCards[0].pairId === openCards[1].pairId) {
                 dispatch(actions.setCardsAsMatched())
+                dispatch(scoreActions.increaseScore())
             } else {
+                dispatch(scoreActions.decreaseScore())
                 setTimeout(() => dispatch(actions.setCardsAsClosed()), 1000)
             }
         }
