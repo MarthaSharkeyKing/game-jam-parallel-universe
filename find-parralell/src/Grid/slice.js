@@ -36,13 +36,19 @@ export const gridSlice = createSlice({
   initialState,
   reducers: {
     setCardAsOpen: (state, action) => {
-      state.cards = state.cards.map(card => {
-        if(card.positionId === action.payload.positionId) {
+        if(action.payload.cardState === 'closed'){
+                  state.cards = state.cards.map(card => {
+        if((card.positionId === action.payload.positionId) && card.cardState === 'closed') {
             return ({...card, cardState: 'open'})
       }
       else return card
     });
-    state.cardsOpen = [...state.cardsOpen, action.payload]
+    const cardsOpenIds = state.cardsOpen.map(card => card.positionId)
+    if(!cardsOpenIds.includes(action.payload.positionId)){
+        state.cardsOpen = [...state.cardsOpen, action.payload]
+    }
+        }
+
     },
     setCardsAsClosed: (state) => {
         state.cards = state.cards.map(card => {
