@@ -14,13 +14,13 @@ const Grid = () => {
   const openCards = useSelector(selectors.getCardsOpen);
 
   const handleClick = (card) => {
-    if (openCards.length < 2) {
+    if (!gameOver && openCards.length < 2) {
       dispatch(actions.setCardAsOpen(card));
     }
   };
 
   useEffect(() => {
-    if (!gameOver && openCards.length === 2) {
+    if (openCards.length === 2) {
       if (openCards[0].pairId === openCards[1].pairId) {
         dispatch(actions.setCardsAsMatched());
         dispatch(scoreActions.increaseScore());
@@ -39,6 +39,7 @@ const Grid = () => {
             key={card.positionId}
             positionId={card.positionId}
             cardState={card.cardState}
+            cardImage={card.img}
           />
         </button>
       ))}
