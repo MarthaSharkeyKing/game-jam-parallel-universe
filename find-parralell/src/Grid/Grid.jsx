@@ -31,7 +31,7 @@ const Grid = () => {
     ]
   return (
     <div className="Grid">
-        {cardInfo.map(card => <Card positionId={card.positionId}/>)}
+        {cardInfo.map(card => <button><Card positionId={card.positionId}/></button>)}
     </div>
   );
 }
