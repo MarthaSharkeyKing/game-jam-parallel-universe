@@ -7,17 +7,17 @@ import { Restart } from "./GameState/Restart";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">Close the parallel universes!</header>
-      <body>
         <div className="Menu">
           <Scorecard />
           <Restart />
         </div>
         <div className="Game">
           <CountdownTimer />
-          <Grid />
+          <div className="gridWrapper">
+            <Grid />
+          </div>
+          
         </div>
-      </body>
     </div>
   );
 }
