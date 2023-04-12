@@ -1,3 +1,6 @@
 .Card {
     background-color: brown;
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
 }

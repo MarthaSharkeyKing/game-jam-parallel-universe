@@ -1,9 +1,16 @@
 import './Card.css';
 
-const Card = ({positionId}) => {
+import ClosedDoor from '../ClosedDoor/ClosedDoor';
+import OpenDoor from '../OpenDoor/OpenDoor';
+
+const Card = ({positionId, isOpen}) => {
   return (
-    <div className="Card grid-item">
-        <>{positionId}</>
+    <div className="Card">
+        {isOpen ? 
+            <div className='open'><OpenDoor/></div>
+            :
+            <div classname='closed'><ClosedDoor/></div>
+            }
     </div>
   );
 }
