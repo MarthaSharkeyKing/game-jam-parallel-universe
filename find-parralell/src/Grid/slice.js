@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
+import * as _ from 'lodash';
 
-const initialState = {
-  cards: [
+ 
+ const cardsInit =[
     { positionId: 1, cardState: "oops", pairId: 0, img: "./timeboost.png" },
     {
       positionId: 2,
@@ -47,7 +48,10 @@ const initialState = {
     { positionId: 23, cardState: "closed", pairId: 11, img: "./spider2.jpg" },
     { positionId: 24, cardState: "closed", pairId: 12, img: "./trek1.webp" },
     { positionId: 25, cardState: "closed", pairId: 12, img: "./trek2.jpg" },
-  ],
+  ];
+
+const initialState = {
+  cards: _.shuffle(cardsInit),
   cardsOpen: [],
 };
 
@@ -56,7 +60,7 @@ export const gridSlice = createSlice({
   initialState,
   reducers: {
     resetGrid: (state) => {
-      state.cards = initialState.cards;
+      state.cards = _.shuffle(initialState.cards);
       state.cardsOpen = [];
     },
     showTimeBoost: (state) => {
