@@ -8,7 +8,6 @@ import * as gameStateActions from "../GameState/slice";
 import * as scoreActions from "../Scorecard/slice";
 import { useEffect, useState } from "react";
 
-
 const Grid = () => {
   const dispatch = useDispatch();
   const gameOver = useSelector(gameStateSelectors.getGameOver);
@@ -17,7 +16,7 @@ const Grid = () => {
 
   const handleClick = (card) => {
     if (!gameOver && openCards.length < 2) {
-      if (card.positionId === 1) {
+      if (card.positionId === 1 && card.cardState !== "matched") {
         dispatch(gameStateActions.increaseTime(10));
         dispatch(actions.showTimeBoost());
       } else {
