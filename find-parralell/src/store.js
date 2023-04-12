@@ -1,10 +1,10 @@
-import { configureStore } from '@reduxjs/toolkit'
-import gridReducer from './Grid/slice';
-import scoreReducer from './Scorecard/slice';
+import { configureStore } from "@reduxjs/toolkit";
+import gridReducer from "./Grid/slice";
+import scoreReducer from "./Scorecard/slice";
+import gameStateReducer from "./GameState/slice";
 
 const store = configureStore({
-  reducer: {gridReducer, scoreReducer},
+  reducer: { gridReducer, scoreReducer, gameStateReducer },
+});
 
-})
-
-export default store
+export default store;

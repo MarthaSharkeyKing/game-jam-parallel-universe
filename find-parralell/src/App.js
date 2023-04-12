@@ -1,8 +1,8 @@
 import "./App.css";
-import { CountdownTimer } from "./Timer/CountdownTimer";
+import { CountdownTimer } from "./GameState/CountdownTimer";
 import Grid from "./Grid/Grid";
 import { Scorecard } from "./Scorecard/Scorecard";
-import { Restart } from "./Restart/Restart";
+import { Restart } from "./GameState/Restart";
 
 function App() {
   return (
@@ -10,11 +10,11 @@ function App() {
       <header className="App-header">Close the parallel universes!</header>
       <body>
         <div className="Menu">
-          <Scorecard currentScore={10} />
+          <Scorecard />
           <Restart />
         </div>
         <div className="Game">
-          <CountdownTimer initialSeconds={60} />
+          <CountdownTimer />
           <Grid />
         </div>
       </body>
