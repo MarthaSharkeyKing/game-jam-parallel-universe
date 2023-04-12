@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import * as _ from 'lodash';
 
-const cardInit = [
-    { positionId: 1, cardState: "oops", pairId: 0 },
+ 
+ const cardsInit =[
+    { positionId: 1, cardState: "oops", pairId: 0, img: "./timeboost.png" },
     {
       positionId: 2,
       cardState: "closed",
@@ -47,9 +48,10 @@ const cardInit = [
     { positionId: 23, cardState: "closed", pairId: 11, img: "./spider2.jpg" },
     { positionId: 24, cardState: "closed", pairId: 12, img: "./trek1.webp" },
     { positionId: 25, cardState: "closed", pairId: 12, img: "./trek2.jpg" },
-  ]
+  ];
+
 const initialState = {
-  cards: _.shuffle(cardInit),
+  cards: _.shuffle(cardsInit),
   cardsOpen: [],
 };
 
@@ -58,10 +60,15 @@ export const gridSlice = createSlice({
   initialState,
   reducers: {
     resetGrid: (state) => {
-      state.cards = state.cards.map((card) => {
-        return { ...card, cardState: "closed" };
-      });
+      state.cards = _.shuffle(initialState.cards);
       state.cardsOpen = [];
+    },
+    showTimeBoost: (state) => {
+      state.cards = state.cards.map((card) => {
+        if (card.positionId === 1) {
+          return { ...card, cardState: "matched" };
+        } else return card;
+      });
     },
     setCardAsOpen: (state, action) => {
       if (action.payload.cardState === "closed") {
@@ -99,7 +106,12 @@ export const gridSlice = createSlice({
 });
 
 // each case under reducers becomes an action
-export const { resetGrid, setCardAsOpen, setCardsAsClosed, setCardsAsMatched } =
-  gridSlice.actions;
+export const {
+  resetGrid,
+  showTimeBoost,
+  setCardAsOpen,
+  setCardsAsClosed,
+  setCardsAsMatched,
+} = gridSlice.actions;
 
 export default gridSlice.reducer;

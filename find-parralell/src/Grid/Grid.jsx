@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import * as selectors from "./selectors";
 import * as gameStateSelectors from "../GameState/selectors";
 import * as actions from "./slice";
+import * as gameStateActions from "../GameState/slice";
 import * as scoreActions from "../Scorecard/slice";
 import { useEffect, useState } from "react";
 
@@ -16,7 +17,12 @@ const Grid = () => {
 
   const handleClick = (card) => {
     if (!gameOver && openCards.length < 2) {
-      dispatch(actions.setCardAsOpen(card));
+      if (card.positionId === 1) {
+        dispatch(gameStateActions.increaseTime(10));
+        dispatch(actions.showTimeBoost());
+      } else {
+        dispatch(actions.setCardAsOpen(card));
+      }
     }
   };
 
