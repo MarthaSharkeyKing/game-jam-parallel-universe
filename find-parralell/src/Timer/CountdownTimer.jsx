@@ -21,12 +21,11 @@ export const CountdownTimer = ({ initialSeconds = 0 }) => {
     <div className="CountdownTimer">
       {seconds === 0 ? (
         <div className="GameOver">
-          <h1>Game Over</h1>
+          <h2>Game Over</h2>
         </div>
       ) : (
         <div className="TimeIndicator">
-          <h1>Time remaining:</h1>
-          <h2>{seconds}</h2>
+          <h2>Time remaining: {seconds}</h2>
         </div>
       )}
     </div>
